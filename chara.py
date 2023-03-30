@@ -2,7 +2,7 @@ import random
 
 #szans 100 duzo 1 malo
 #szansa, hp, ak, mg, df, mp, spell
-characters = {'Remi': [1, 10, 3, 7, 1, 5, 'g'], 'Flan': [2, 9, 6, 3, 0, 5, 'l'], 'Okuu': [50, 20, 2, 2, 1, 5, 'r'], 'Rumia': [100, 12, 3, 2, 0, 5,'d']}
+characters = {'Remi': [1, 10, 3, 7, 1, 5, 5, 'g'], 'Flan': [2, 9, 6, 3, 0, 5, 5, 'l'], 'Okuu': [50, 20, 2, 2, 1, 100, 5, 'r'], 'Rumia': [100, 12, 3, 2, 0, 70, 5,'d']}
 
 
 class Character:
@@ -10,8 +10,9 @@ class Character:
         self.name = name
         self.chance = characters[name][0]
         self.id = id
-        self.spell = characters[name][6]
-        self.mpu = characters[name][5]
+        self.spell = characters[name][7]
+        self.mpu = characters[name][6]
+        self.foc = characters[name][5]
         self.df = characters[name][4]
         self.ak = characters[name][3]
         self.mg = characters[name][2]
@@ -21,9 +22,9 @@ class Character:
 
     def debug(self):
         name = self.name
-        self.chance = characters[name][0]
-        self.spell = characters[name][6]
-        self.mpu = characters[name][5]
+        self.spell = characters[name][7]
+        self.mpu = characters[name][6]
+        self.foc = characters[name][5]
         self.df = characters[name][4]
         self.ak = characters[name][3]
         self.mg = characters[name][2]
@@ -54,6 +55,6 @@ def gen_id():
 
     return i
 
-
+# 8==⊃
 
 

@@ -1,4 +1,57 @@
 
+ter ={'default': 0}
+#kutas
+class Battle:
+    def __init__(self, player1, player2, ter='default'):
+        self.player1 = player1
+        self.player2 = player2
+        self.phase = 0
+        self.terrain = ter
+
+    def load_slots(self):
+        self.slot11 = self.player1.get_roster().slot1
+        self.slot12 = self.player1.get_roster().slot2
+        self.slot13 = self.player1.get_roster().slot3
+        self.slot14 = self.player1.get_roster().slot4
+        self.slot15 = self.player1.get_roster().slot5
+        self.slot16 = self.player1.get_roster().slot6
+
+        self.slot21 = self.player2.get_roster().slot1
+        self.slot22 = self.player2.get_roster().slot2
+        self.slot23 = self.player2.get_roster().slot3
+        self.slot24 = self.player2.get_roster().slot4
+        self.slot25 = self.player2.get_roster().slot5
+        self.slot26 = self.player2.get_roster().slot6
+
+
+    def pick_target(self, unit, p):
+        x = p.get_roster().get_list()
+        for i in range(0, 3):
+            if x[i].alive == True:
+                targets.append(x[i])
+        l = []
+        for i in targets:
+            l.append(i.foc)
+        unit.target = random.choices(targets, l)[0]
+
+    def deal_damage(self, unit):
+        target = unit.target
+        target.hp -= unit.ak - target.df
+        if target.hp <= 0:
+            target.alive = False
+
+    def tick(self):
+
+        if self.phase == 0:
+            self.load_slots()
+            self.termod = ter[self.terrain]
+
+
+
+
+
+
+
 
 def fajto(p1, p2):
     u1 = p1.get_roster()
@@ -170,6 +223,7 @@ def fajto(p1, p2):
             if x != None:
                 if x.mp == x.mpu:
                     x.mp = 0
+                    #if x.spell == "f":
                 else:
                     x.mp += 1
 
@@ -228,4 +282,4 @@ def fajto(p1, p2):
             return p1
 
 
-
+# ╰⋃╯
